@@ -1,0 +1,26 @@
+
+.platform-board { max-width: 64rem; }
+.platform-stats { display: flex; flex-wrap: wrap; gap: .35rem .75rem; }
+.platform-stats .platform-boost { color: #81420f; }
+.platform-board .platform-level { font-weight: 740; color: #325a47; }
+.platform-stage { position: relative; overflow: hidden; border-radius: .85rem; margin-top: 1rem; background: #eaf6cc; }
+.platform-stage canvas { width: 100%; height: auto; display: block; image-rendering: pixelated; }
+.platform-key-hint kbd { padding: .05rem .3rem; border: 1px solid #a7bcaa; border-radius: .25rem; font-weight: 700; }
+.platform-key-hint span { padding: 0 .25rem; }
+.platform-overlay {
+  position: absolute; inset: 0 0 auto; aspect-ratio: 820 / 390; display: grid; place-content: center;
+  justify-items: center; gap: .45rem; background: #214a3878; color: white; text-align: center;
+}
+.platform-overlay strong { font-size: clamp(1.2rem, 4vw, 2.5rem); text-shadow: 0 1px 5px #173120; }
+.platform-controls { display: flex; flex-wrap: wrap; gap: .5rem; padding: .6rem; background: #eff6e8; }
+.platform-controls button {
+  min-height: 44px; min-width: 44px; padding: .4rem .65rem; border: 1px solid #9ab49a; border-radius: .5rem;
+  color: #214a38; background: white; font-weight: 700; touch-action: none; user-select: none;
+}
+.platform-controls button:not(:disabled) { cursor: pointer; }
+.platform-controls button:active { background: #dcebc3; }
+.platform-controls button:disabled { opacity: .65; }
+.platform-controls button:last-child { margin-left: auto; }
+@media (max-width: 24rem) {
+  .platform-controls button span { display: none; }
+}

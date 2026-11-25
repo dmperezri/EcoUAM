@@ -1,0 +1,15 @@
+
+.green-areas { margin-top: 2rem; }
+.green-areas h2 { font-size: 1.65rem; font-weight: 700; }
+.green-area-links, .green-area-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+.green-area-links a { padding: 0.65rem 0.8rem; border-radius: 0.6rem; background: #e9f1df; text-decoration: underline; }
+.green-area-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1rem; }
+.green-area-card { background: white; border: 1px solid #d7e2d4; border-radius: 1rem; overflow: hidden; scroll-margin-top: 5rem; }
+.green-area-photo { overflow: hidden; position: relative; background: #e9f1df; }
+.green-area-photo img { position: absolute; display: block; height: auto; max-width: none; }
+.campus-section .green-area-card figcaption { margin: 0; padding: 0.7rem 1rem; color: #415549; }
+.green-area-copy { padding: 0 1rem 1rem; }
+.green-area-copy h3 { font-size: 1.25rem; font-weight: 700; }
+.green-area-copy p { margin-top: 0.5rem; }
+.green-area-copy em { display: block; }
+.green-area-history { font-weight: 700; color: #75461d; }

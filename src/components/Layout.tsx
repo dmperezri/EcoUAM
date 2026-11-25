@@ -1,9 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
-import { Leaf, Menu, X } from 'lucide-react'
+import { CloudSun, Gamepad2, House, Leaf, Map, Menu, X } from 'lucide-react'
 import { modules } from '../data/modules'
 import { Brand } from './Brand'
 
+
+const mobileLinks = [
+  { path: '/', label: 'Inicio', icon: House },
+  { path: '/mapa', label: 'Mapa', icon: Map },
+  { path: '/clima', label: 'Clima', icon: CloudSun },
+  { path: '/minijuegos', label: 'Juegos', icon: Gamepad2 },
+] as const
 export function Layout() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
@@ -35,7 +42,14 @@ export function Layout() {
       <nav id="navegacion" aria-label="Navegación principal">{modules.map(({ path, label, icon: Icon }) => <NavLink key={path} to={path} end={path === '/'} onClick={() => setMenuOpen(false)} className={({ isActive }) => `nav-item ${isActive ? 'is-active' : ''}`}><Icon size={20} aria-hidden="true" /><span>{label}</span></NavLink>)}</nav>
       <div className="sidebar-note"><Leaf size={20} aria-hidden="true" /><p>Un campus que conocemos.<br /><strong>Un entorno que cuidamos.</strong></p><span>Proyecto académico independiente</span></div>
     </aside>
-    <div className="main-column"><div className="topline"><span>Universidad Americana <span className="topline-place">/ Managua, Nicaragua</span></span><span className="phase-badge">Versión inicial</span></div>
+    <div className="mobile-dock" role="group" aria-label="Accesos rápidos">
+      {mobileLinks.map(({ path, label, icon: Icon }) => (
+        <NavLink key={path} to={path} end={path === '/'} onClick={() => setMenuOpen(false)}>
+          <Icon size={20} aria-hidden="true" /><span>{label}</span>
+        </NavLink>
+      ))}
+    </div>
+    <div className="main-column nature-shell"><div className="topline"><span>Universidad Americana <span className="topline-place">/ Managua, Nicaragua</span></span></div>
       <main id="contenido" ref={main} tabIndex={-1}><Outlet /></main>
       <footer><span>EcoUAM · Conoce y cuida nuestros espacios verdes.</span><span>Proyecto académico independiente. No es una aplicación oficial de la UAM.</span></footer>
     </div>

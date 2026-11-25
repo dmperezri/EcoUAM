@@ -1,15 +1,54 @@
 import { Link } from 'react-router-dom'
-import { Leaf, Sprout, Check } from 'lucide-react'
+import { CloudSun, Gamepad2, MapPin, Trees } from 'lucide-react'
 import { modules } from '../../data/modules'
+import { NaturePhoto } from '../../components/NaturePhoto'
+
+const features = [
+  { path: '/areas-verdes', title: 'Áreas verdes', description: 'Senderos, árboles y rincones del campus.', icon: Trees, photo: 'arboretum' },
+  { path: '/clima', title: 'Clima en la UAM', description: 'Pronóstico de Managua y boletín del campus.', icon: CloudSun, photo: 'jaguar-jungle' },
+  { path: '/minijuegos', title: 'Minijuegos ambientales', description: 'Acompaña a Jaguarcín por el sendero verde.', icon: Gamepad2 },
+] as const
+
 export function HomePage() {
-  return <div className="page-container">
-    <div className="section-eyebrow"><Sprout size={16} aria-hidden="true" /> EDUCACIÓN AMBIENTAL · UAM</div>
-    <section className="welcome-panel" aria-labelledby="home-title">
-      <div className="welcome-copy"><span className="small-label">BIENVENIDO A ECOUAM</span><h1 id="home-title">Conoce y cuida<br />nuestros <em>espacios verdes.</em></h1><p>Un espacio para conectar con el entorno de la UAM, aprender sobre su naturaleza y construir una comunidad más consciente.</p><a className="button-primary" href="#secciones">Conocer las secciones</a></div>
-      <div className="nature-mark" aria-hidden="true"><div className="nature-circle"><Leaf size={150} strokeWidth={0.8} /></div><span className="nature-caption">CONOCER · VALORAR · CUIDAR</span></div>
-    </section>
-    <section className="phase-note" aria-label="Estado del proyecto"><span className="phase-icon"><Check size={20} aria-hidden="true" /></span><div><h2>Estamos sembrando las bases</h2><p>Esta primera versión permite recorrer las secciones. Su contenido se incorporará por fases, con información y fuentes verificadas.</p></div><span className="phase-badge">Fase 1</span></section>
-    <section id="secciones" aria-labelledby="sections-title"><div className="section-heading"><div><span className="small-label">UN ENTORNO POR DESCUBRIR</span><h2 id="sections-title">Explora EcoUAM</h2></div><span className="section-hint">Contenido en preparación</span></div><div className="module-grid">{modules.slice(1, 7).map(({ path, label, description, icon: Icon }) => <Link className="module-card" to={path} key={path}><span className="module-icon"><Icon size={25} strokeWidth={1.6} aria-hidden="true" /></span><h3>{label}</h3><p>{description}</p><span className="card-status">Próximamente</span></Link>)}</div></section>
-    <div className="project-note"><Sprout size={24} aria-hidden="true" /><p>EcoUAM complementa las iniciativas de UAM Verde desde un proyecto académico independiente.</p><Link to="/fuentes">Fuentes y créditos</Link></div>
-  </div>
+  return (
+    <div className="page-container nature-page nature-home">
+      <section className="nature-hero" aria-labelledby="nature-home-title">
+        <NaturePhoto photo="sendero" />
+        <div className="nature-hero-shade" />
+        <div className="nature-hero-content">
+          <p className="nature-location"><MapPin size={17} aria-hidden="true" /> Universidad Americana · Managua</p>
+          <h1 id="nature-home-title">Conoce y cuida <span>nuestros espacios verdes.</span></h1>
+          <p className="nature-intro">Recorre los senderos de la UAM y descubre la vida que crece entre sus aulas.</p>
+          <Link className="nature-cta" to="/mapa"><MapPin size={19} aria-hidden="true" /> Explorar el campus</Link>
+        </div>
+        <p className="nature-image-credit">Sendero Ecológico · Jennifer Letizia Sequeira Verbis, álbum UAM Verde</p>
+      </section>
+
+      <section aria-labelledby="nature-explore-title" className="nature-explore">
+        <h2 id="nature-explore-title">Explora EcoUAM</h2>
+        <div className="nature-feature-grid">
+          {features.map((feature) => (
+            <Link className="nature-feature nature-glass" to={feature.path} key={feature.path}>
+              <div className="nature-feature-art">
+                {'photo' in feature
+                  ? <NaturePhoto photo={feature.photo} />
+                  : <img src="/games/jaguarcin-pixel.png" alt="" />}
+              </div>
+              <div className="nature-feature-copy">
+                <feature.icon size={19} aria-hidden="true" />
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="nature-more nature-glass" aria-label="Más secciones">
+          {modules.filter(({ path }) => path !== '/' && !features.some((feature) => feature.path === path))
+            .map(({ path, label, icon: Icon }) => (
+              <Link key={path} to={path}><Icon size={18} aria-hidden="true" /> {label}</Link>
+            ))}
+        </div>
+      </section>
+    </div>
+  )
 }

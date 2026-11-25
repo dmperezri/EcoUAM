@@ -1,0 +1,207 @@
+
+.nature-shell {
+  --nature-glass: #fff;
+  --nature-border: #dfe7de;
+  --nature-panel-muted: #f3f7ef;
+  font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
+}
+
+.nature-section-header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(13rem, 24vw, 18rem);
+  border-radius: clamp(20px, 3vw, 34px);
+  color: var(--nature-white);
+  background: #294232;
+}
+.nature-section-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #14291fec 4%, #163328b2 55%, #1732252c 100%),
+    linear-gradient(0deg, #0f261acd, #18321900 82%);
+}
+.nature-section-content { position: relative; padding: clamp(18px, 4vw, 42px); }
+.nature-section-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: .7rem;
+  border-radius: 13px;
+  border: 1px solid #e5f1cc55;
+  background: #cfe9b522;
+  color: var(--nature-accent);
+}
+.nature-shell .nature-section-header h1, .nature-shell .page-title {
+  max-width: 46rem;
+  font-size: clamp(2.2rem, 5vw, 4.15rem);
+  line-height: 1.02;
+  font-weight: 630;
+  letter-spacing: -.055em;
+  text-wrap: balance;
+}
+.nature-section-content p {
+  max-width: 35rem;
+  margin-top: .65rem;
+  color: #e5efde;
+  font-size: clamp(.95rem, 1.4vw, 1.09rem);
+  line-height: 1.52;
+}
+.nature-shell .campus-action, .nature-shell .arboretum-link, .nature-shell .button-primary {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--nature-accent);
+  color: #1a3322;
+}
+.nature-shell .campus-action:hover, .nature-shell .arboretum-link:hover, .nature-shell .button-primary:hover {
+  background: #edf4c6;
+}
+.nature-shell :is(button, a):focus-visible { outline: 3px solid var(--nature-green); outline-offset: 4px; }
+.nature-shell :is(.nature-hero, .nature-weather-hero, .platform-stage) :is(button, a):focus-visible {
+  outline-color: var(--nature-accent);
+}
+.nature-shell .button-secondary {
+  border-color: var(--nature-border);
+  background: var(--nature-panel-muted);
+  color: var(--nature-green);
+  border-radius: 999px;
+}
+.nature-shell .button-secondary:hover { background: #e7f1e2; }
+.nature-shell :is(.section-eyebrow, .page-description, .source-card p, .credits p) { color: var(--nature-muted); }
+.nature-shell :is(.empty-panel, .source-card, .credits, .arboretum-map, .green-area-card, .game-board, .jaguar-guide) {
+  background: var(--nature-glass);
+  border: 1px solid var(--nature-border);
+  border-radius: 23px;
+  box-shadow: 0 8px 26px #253b2810;
+}
+.nature-shell .credits { padding: 1.4rem; }
+.nature-shell :is(.empty-panel p, .empty-panel .empty-detail) { color: var(--nature-muted); }
+.nature-shell :is(.empty-icon, .phase-badge) { background: var(--nature-panel-muted); color: var(--nature-green); border-color: var(--nature-border); }
+.nature-shell .source-card a { color: var(--nature-green); }
+.nature-shell .skip-link { background: var(--nature-paper); color: #1e3f2a; }
+
+.nature-shell .campus-grid { gap: 14px; margin-top: 16px; align-items: start; }
+.map-glass, .map-guide { padding: clamp(.7rem, 2vw, 1.05rem); border-radius: 23px; min-width: 0; }
+.map-glass figcaption, .nature-shell .arboretum-map figcaption {
+  color: var(--nature-muted);
+  line-height: 1.48;
+}
+.nature-shell .campus-plan { border-radius: 13px; }
+.nature-shell .map-pin {
+  background: #203e31;
+  color: var(--nature-white);
+  border-color: #f1f7df;
+  min-width: 36px;
+  min-height: 36px;
+}
+.nature-shell .map-pin[aria-pressed="true"] { background: var(--nature-accent); color: #172e21; border-color: #172e21; }
+.map-guide h2 {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin-bottom: .7rem;
+}
+.map-guide h2 svg { color: var(--nature-green); }
+.nature-shell .map-list button {
+  display: flex;
+  align-items: center;
+  gap: .53rem;
+  padding: .5rem .63rem;
+  border: 1px solid var(--nature-border);
+  border-radius: 12px;
+  color: var(--nature-ink);
+  background: var(--nature-panel-muted);
+}
+.map-number {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  flex: 0 0 auto;
+  background: #e4efdf;
+  color: var(--nature-green);
+  border-radius: 50%;
+  font-size: .85rem;
+  font-weight: 700;
+}
+.nature-shell .map-list button:hover { background: #e9f3e5; }
+.nature-shell .map-list button[aria-pressed="true"] { background: #e5f0df; border-color: #b9d0b4; color: #1a3322; font-weight: 700; }
+.nature-shell .map-list button[aria-pressed="true"] .map-number { background: #2b503025; color: #1a3322; }
+.nature-shell .map-detail {
+  background: #f5f8f2;
+  border-color: #7ca678;
+  border-radius: 0 11px 11px 0;
+  color: var(--nature-muted);
+}
+.nature-shell .map-detail strong { color: var(--nature-ink); }
+
+.nature-shell .arboretum-map { margin-top: 16px; max-width: 55rem; padding: clamp(.7rem, 2vw, 1.05rem); }
+.nature-shell .green-areas h2 { font-size: clamp(1.53rem, 2.8vw, 2.16rem); font-weight: 630; letter-spacing: -.035em; }
+.nature-shell .green-area-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  background: var(--nature-panel-muted);
+  color: var(--nature-green);
+  border: 1px solid var(--nature-border);
+  border-radius: 999px;
+  text-decoration: none;
+}
+.nature-shell .green-area-links a:hover { background: #e5f0df; }
+.nature-shell .green-area-card:target { outline: 2px solid #579059; outline-offset: 3px; }
+.nature-shell .green-area-card figcaption { color: var(--nature-muted); font-size: .82rem; line-height: 1.45; }
+.nature-shell .green-area-copy { padding: 0 1rem 1.2rem; }
+.nature-shell .green-area-copy h3 { color: var(--nature-ink); }
+.nature-shell .green-area-copy p { color: var(--nature-muted); }
+.nature-shell .green-area-copy em { color: var(--nature-green); }
+.nature-shell .green-area-copy .green-area-history { color: #7b511f; }
+
+.game-header-mascot {
+  position: absolute;
+  top: 0;
+  right: 1%;
+  height: 120%;
+  width: auto;
+  max-width: 55%;
+  object-fit: contain;
+  object-position: center top;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 10px 18px #152b1975);
+}
+.games-section .nature-section-header { background: radial-gradient(ellipse at 77% 36%, #637d4b, #234334 56%, #172f24); }
+.games-section .nature-section-shade { background: linear-gradient(90deg, #14291fee, #19352b72 57%, #22322513 80%); }
+.nature-shell :is(.game-choices button, .game-restart, .platform-controls button) {
+  border-radius: 999px;
+  color: var(--nature-green);
+  border-color: var(--nature-border);
+  background: var(--nature-panel-muted);
+}
+.nature-shell :is(.game-choices button, .game-restart, .platform-controls button):not(:disabled):hover { background: #e6f0e2; }
+.nature-shell .game-choices button[aria-pressed="true"],
+.nature-shell .game-choices button[aria-pressed="true"]:hover {
+  color: white;
+  border-color: var(--nature-green);
+  background: var(--nature-green);
+}
+.nature-shell .game-board-header span, .nature-shell .platform-board .platform-level { color: var(--nature-green); }
+.nature-shell .platform-stats .platform-boost { color: #854d18; }
+.nature-shell .platform-stage { border: 1px solid var(--nature-border); border-radius: 15px; }
+.nature-shell .platform-controls { background: #f5f7f2; }
+.nature-shell .platform-overlay { background: #112a21a8; }
+.nature-shell .platform-key-hint kbd { background: #f0f5ec; border-color: #d1e2d0; }
+.nature-shell .waste-item { background: #f3f7ee; border-color: #9dbf97; }
+.nature-shell .waste-bin:hover, .nature-shell .memory-card:hover { border-color: #689264; }
+.nature-shell .memory-card:not([data-revealed="true"]) { background: #254435; border-color: #d7ecca39; color: var(--nature-accent); }
+.nature-shell .memory-card:not([data-revealed="true"]):hover { border-color: var(--nature-accent); }
+.nature-shell .game-win { color: var(--nature-green); }
+
+@media (max-width: 767px) {
+  .nature-section-shade { background: linear-gradient(90deg, #132c22ed, #17382b90 68%, #19342740); }
+  .nature-section-header { min-height: 12rem; }
+  .game-header-mascot { right: -6%; max-width: 65%; opacity: .75; }
+  .map-glass, .map-guide { border-radius: 18px; }
+  .nature-shell .green-area-links { gap: .45rem; }
+}
